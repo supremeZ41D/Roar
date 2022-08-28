@@ -12,6 +12,7 @@ def welcome(name: str):
 
 @app.command()
 def books(mode: str='column'):
+    """Books are printed in both column and row form"""
     query = """SELECT name FROM sqlite_schema"""
     result = cursor.execute(query).fetchall()
 
