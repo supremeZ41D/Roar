@@ -11,8 +11,9 @@ def welcome(name: str):
     print(f"Welcome {name}, to Roar! An open-source CLI Bible tool.")
 
 @app.command()
-def books(mode: str='column'):
+def books(mode: str='column', author: bool=False):
     """Books are printed in both column and row form"""
+
     query = """SELECT name FROM sqlite_schema"""
     result = cursor.execute(query).fetchall()
 
@@ -21,6 +22,8 @@ def books(mode: str='column'):
             print(cell[0], end=' ')
         elif mode=='column':
             print(cell[0])
+
+
 
 
 if __name__ == "__main__":
